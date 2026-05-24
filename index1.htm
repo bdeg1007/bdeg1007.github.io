@@ -1,35 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>
-
-Bruce Engelberg
-</title>
-<meta http-equiv="Content-Type" content="text/html;" />
-    <meta name="keywords" content="Resume Buildinglink Vantaca Bruce Engelberg Bruce IT Information Technology" />
-<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruce Engelberg</title>
+    <meta name="keywords" content="Resume Buildinglink Vantaca Bruce Engelberg Bruce IT Information Technology">
+    <meta name="description" content="Professional portfolio and resume of Bruce Engelberg">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body bgcolor= "white">
-	
-<p>
-	<div class="topnav">
-  <a class="active" href="index1.htm">Home</a>
-  <a href="links.htm">Links</a>
-  <a href="c.htm">Work Links</a>
-  <a href="resume.htm">Resume</a>
-</div>
-<br/>
-<center>
-<image src="covid.jpg">
-	
+<body>
+    <!-- Navigation -->
+    <nav class="topnav">
+        <a class="active" href="index1.html">Home</a>
+        <a href="links.htm">Links</a>
+        <a href="c.htm">Work Links</a>
+        <a href="resume.htm">Resume</a>
+    </nav>
 
-<br/>
-<br/>
-<br/>
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Bruce Engelberg</h1>
+                <p>IT Professional</p>
+                
+                <!-- Image with alt text -->
+                <img src="covid.jpg" alt="Bruce Engelberg professional photo" class="profile-image">
+                
+                <!-- Interactive elements -->
+                <div class="cta-buttons">
+                    <a href="resume.htm" class="btn primary">View Resume</a>
+                    <a href="links.htm" class="btn secondary">Explore Links</a>
+                </div>
+            </div>
+        </section>
 
+        <!-- Additional sections -->
+        <section class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Welcome to my professional portfolio.</p>
+            </div>
+        </section>
 
+        <!-- Recent Updates -->
+        <section class="updates">
+            <div class="container">
+                <h2>Recent Activity</h2>
+                <ul>
+                    <li>New resume templates added</li>
+                    <li>Updated work links collection</li>
+                    <li>Enhanced portfolio sections</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Bruce Engelberg. All rights reserved.</p>
+        </div>
+    </footer>
 
-
-
+    <script>
+        // Simple interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    this.classList.toggle('zoom');
+                });
+            });
+        });
+    </script>
 </body>
-</HTML>
+</html>
