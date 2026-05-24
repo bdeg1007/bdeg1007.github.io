@@ -167,5 +167,5 @@
   100% { transform: rotate(360deg); }
 }
 #rotating-title {
-  animation: rotate 2s linear infinite;
+  animation: rotate 8s ease-in-out infinite;
 }
