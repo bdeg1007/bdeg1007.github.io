@@ -64,8 +64,8 @@
   margin-bottom: 10px;
 }
 
-/* Social links section */
-.social-links {
+/* Links grid section */
+.links-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
@@ -93,8 +93,8 @@
   font-size: 28px;
 }
 
-/* Social media images */
-.social-image {
+/* Link images */
+.link-image {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
@@ -103,27 +103,8 @@
   margin: 0 auto;
 }
 
-.link-item:hover .social-image {
+.link-item:hover .link-image {
   transform: scale(1.05);
-}
-
-/* Video container styling */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    margin: 0 auto 20px; /* Add spacing below video */
-}
-
-.youtube-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
 }
 
 /* Footer styling */
@@ -160,9 +141,10 @@
     padding: 15px;
   }
   
-  /* Make YouTube video smaller on mobile */
-  .video-container {
-    height: 200px; /* Fixed height for mobile */
+  /* Make grid responsive for small screens */
+  .links-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 }
 
