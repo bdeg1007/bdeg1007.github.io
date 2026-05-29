@@ -99,6 +99,8 @@
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .link-item:hover .social-image {
@@ -156,6 +158,11 @@
   
   .link-item {
     padding: 15px;
+  }
+  
+  /* Make YouTube video smaller on mobile */
+  .video-container {
+    height: 200px; /* Fixed height for mobile */
   }
 }
 
