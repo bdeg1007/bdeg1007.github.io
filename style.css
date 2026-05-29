@@ -169,3 +169,29 @@
 #rotating-title {
   animation: rotate 8s ease-in-out infinite;
 }
+.profile-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+@media screen and (max-width: 480px) {
+  .topnav a {
+    font-size: 20px;
+    padding: 8px 6px;
+  }
+  
+  .page-header h1 {
+    font-size: 36px;
+  }
+  
+  .link-item {
+    padding: 15px;
+  }
+  
+  /* Add this for mobile profile image */
+  .profile-image {
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+}
