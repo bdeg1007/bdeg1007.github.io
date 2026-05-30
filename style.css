@@ -47,6 +47,7 @@
   margin: 0 auto;
   padding: 20px;
   width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't add to width */
 }
 
 /* Page header styling */
@@ -228,4 +229,19 @@
   .link-item {
     padding: 15px;
   }
+}
+
+/* Additional fixes for overflow issues */
+* {
+  box-sizing: border-box; /* Ensure all elements respect padding */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
