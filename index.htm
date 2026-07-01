@@ -61,6 +61,21 @@
         </section>
     </main>
 
+    <!-- Hidden form for visitor tracking -->
+    <form id="visitor-form" 
+          style="display:none;" 
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfggLRLZ4HaBo2uX0r7QFrU6Kti1sVyPX0g45vVRaP2-b0gcQ/formResponse" 
+          method="POST">
+        <input type="hidden" name="entry.123456789" value="Page visit - 2024-01-01">
+    </form>
+    
+    <!-- JavaScript to submit form automatically -->
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('visitor-form').submit();
+        });
+    </script>
+    
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
