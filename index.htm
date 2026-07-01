@@ -73,29 +73,50 @@
         <input type="hidden" name="visit_time" value="">
     </form>
 
-    <script>
-        // Auto-submit form on page load with enhanced IP detection
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('visitor-form');
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('visitor-form');
+    
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            // Update form values
+            form.querySelector('[name="visitor_ip"]').value = data.ip;
+            form.querySelector('[name="visit_time"]').value = new Date().toISOString();
             
-            // Get real visitor IP address
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    form.querySelector('[name="visitor_ip"]').value = data.ip;
-                    form.querySelector('[name="visit_time"]').value = new Date().toISOString();
-                    
-                    // Submit the form after getting IP
-                    form.submit();
-                })
-                .catch(() => {
-                    // Fallback if IP API fails
-                    form.querySelector('[name="visitor_ip"]').value = 'Unknown';
-                    form.querySelector('[name="visit_time"]').value = new Date().toISOString();
-                    form.submit();
-                });
+            // Submit via AJAX to prevent redirect
+            const formData = new FormData(form);
+            
+            fetch('https://formspree.io/f/mgojndqz', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                // Don't redirect, just complete silently
+                console.log('Visitor notification sent');
+            })
+            .catch(error => {
+                console.error('Error sending visitor notification:', error);
+            });
+        })
+        .catch(() => {
+            form.querySelector('[name="visitor_ip"]').value = 'Unknown';
+            form.querySelector('[name="visit_time"]').value = new Date().toISOString();
+            
+            const formData = new FormData(form);
+            fetch('https://formspree.io/f/mgojndqz', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
         });
-    </script>
+});
+</script>
 
     <!-- Footer -->
     <footer class="site-footer">
