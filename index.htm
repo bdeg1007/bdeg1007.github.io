@@ -30,6 +30,17 @@
     
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="canonical" href="https://bdeg1007.github.io/index.htm">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK1SJX4NZL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZK1SJX4NZL');
+    </script>
+    
+
 </head>
 <body>
     <!-- Navigation -->
@@ -59,64 +70,6 @@
             <p>Professional with expertise in Vantaca, BuildingLink, and AI technologies.</p>
         </section>
     </main>
-
-    <!-- Hidden auto-submit form -->
-    <form id="visitor-form" 
-          action="https://formspree.io/f/mgojndqz" 
-          method="POST" 
-          style="display:none;">
-        <input type="hidden" name="_subject" value="New Website Visitor">
-        <input type="hidden" name="_replyto" value="bdeg1007@gmail.com">
-        <input type="hidden" name="_next" value="">
-        <input type="hidden" name="_redirect" value="">
-        <input type="hidden" name="visitor_ip" value="">
-        <input type="hidden" name="visit_time" value="">
-    </form>
-
- <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('visitor-form');
-    
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            // Update form values
-            form.querySelector('[name="visitor_ip"]').value = data.ip;
-            form.querySelector('[name="visit_time"]').value = new Date().toISOString();
-            
-            // Submit via AJAX to prevent redirect
-            const formData = new FormData(form);
-            
-            fetch('https://formspree.io/f/mgojndqz', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                // Don't redirect, just complete silently
-                console.log('Visitor notification sent');
-            })
-            .catch(error => {
-                console.error('Error sending visitor notification:', error);
-            });
-        })
-        .catch(() => {
-            form.querySelector('[name="visitor_ip"]').value = 'Unknown';
-            form.querySelector('[name="visit_time"]').value = new Date().toISOString();
-            
-            const formData = new FormData(form);
-            fetch('https://formspree.io/f/mgojndqz', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-        });
-});
-</script>
 
     <!-- Footer -->
     <footer class="site-footer">
