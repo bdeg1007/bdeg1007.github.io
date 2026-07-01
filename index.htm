@@ -61,30 +61,43 @@
         </section>
     </main>
 
-    <!-- Hidden auto-submit form -->
+    <<!-- Hidden auto-submit form -->
     <form id="visitor-form" 
           action="https://formspree.io/f/mgojndqz" 
           method="POST" 
           style="display:none;">
         <input type="hidden" name="_subject" value="New Website Visitor">
         <input type="hidden" name="_replyto" value="bdeg1007@gmail.com">
+        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_redirect" value="">
         <input type="hidden" name="visitor_ip" value="">
         <input type="hidden" name="visit_time" value="">
     </form>
 
     <script>
-        // Auto-submit form on page load
+        // Auto-submit form on page load with enhanced IP detection
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('visitor-form');
             
-            // Add visitor details
-            form.querySelector('[name="visitor_ip"]').value = 'IP_ADDRESS_PLACEHOLDER';
-            form.querySelector('[name="visit_time"]').value = new Date().toISOString();
-            
-            // Submit the form
-            form.submit();
+            // Get real visitor IP address
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    form.querySelector('[name="visitor_ip"]').value = data.ip;
+                    form.querySelector('[name="visit_time"]').value = new Date().toISOString();
+                    
+                    // Submit the form after getting IP
+                    form.submit();
+                })
+                .catch(() => {
+                    // Fallback if IP API fails
+                    form.querySelector('[name="visitor_ip"]').value = 'Unknown';
+                    form.querySelector('[name="visit_time"]').value = new Date().toISOString();
+                    form.submit();
+                });
         });
     </script>
+
    
     
     <!-- Footer -->
