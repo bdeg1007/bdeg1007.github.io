@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,79 @@
     
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="canonical" href="https://bdeg1007.github.io/index.htm">
+
+    <!-- Popup CSS -->
+    <style>
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 90%;
+            width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .popup-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK1SJX4NZL"></script>
@@ -70,38 +144,41 @@
             <p>Professional with expertise in Vantaca, BuildingLink, and AI technologies.</p>
         </section>
     </main>
+
+    <!-- Popup Script -->
     <script>
-// Show popup on page load with delay
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    // Create popup element
-    const popup = document.createElement('div');
-    popup.className = 'popup';
-    popup.innerHTML = `
-      <div class="popup-content">
-        <h2>Bruce Engelberg</h2>
-        <p>IT Professional & AI Specialist</p>
-        <button class="close-btn">Continue</button>
-      </div>
-    `;
-    
-    // Add to body
-    document.body.appendChild(popup);
-    
-    // Close on button click or outside click
-    const closeBtn = popup.querySelector('.close-btn');
-    closeBtn.addEventListener('click', function() {
-      popup.remove();
-    });
-    
-    popup.addEventListener('click', function(e) {
-      if (e.target === popup) {
-        popup.remove();
-      }
-    });
-  }, 1000); // Show after 1 second
-});
-</script>
+        // Show popup on page load with delay
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                // Create popup element
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.innerHTML = `
+                    <div class="popup-content">
+                        <h2>Bruce Engelberg</h2>
+                        <p>IT Professional & AI Specialist</p>
+                        <button class="close-btn">Continue</button>
+                    </div>
+                `;
+                
+                // Add to body
+                document.body.appendChild(popup);
+                
+                // Close on button click or outside click
+                const closeBtn = popup.querySelector('.close-btn');
+                closeBtn.addEventListener('click', function() {
+                    popup.remove();
+                });
+                
+                popup.addEventListener('click', function(e) {
+                    if (e.target === popup) {
+                        popup.remove();
+                    }
+                });
+            }, 1000); // Show after 1 second
+        });
+    </script>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
@@ -114,37 +191,5 @@ window.addEventListener('load', function() {
             </nav>
         </div>
     </footer>
-    <script>
-// Show popup on page load with delay
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    // Create popup element
-    const popup = document.createElement('div');
-    popup.className = 'popup';
-    popup.innerHTML = `
-      <div class="popup-content">
-        <h2>Bruce Engelberg</h2>
-        <p>IT Professional & AI Specialist</p>
-        <button class="close-btn">Continue</button>
-      </div>
-    `;
-    
-    // Add to body
-    document.body.appendChild(popup);
-    
-    // Close on button click or outside click
-    const closeBtn = popup.querySelector('.close-btn');
-    closeBtn.addEventListener('click', function() {
-      popup.remove();
-    });
-    
-    popup.addEventListener('click', function(e) {
-      if (e.target === popup) {
-        popup.remove();
-      }
-    });
-  }, 1000); // Show after 1 second
-});
-</script>
 </body>
 </html>
