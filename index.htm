@@ -70,7 +70,38 @@
             <p>Professional with expertise in Vantaca, BuildingLink, and AI technologies.</p>
         </section>
     </main>
-
+    <script>
+// Show popup on page load with delay
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    // Create popup element
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-content">
+        <h2>Bruce Engelberg</h2>
+        <p>IT Professional & AI Specialist</p>
+        <button class="close-btn">Continue</button>
+      </div>
+    `;
+    
+    // Add to body
+    document.body.appendChild(popup);
+    
+    // Close on button click or outside click
+    const closeBtn = popup.querySelector('.close-btn');
+    closeBtn.addEventListener('click', function() {
+      popup.remove();
+    });
+    
+    popup.addEventListener('click', function(e) {
+      if (e.target === popup) {
+        popup.remove();
+      }
+    });
+  }, 1000); // Show after 1 second
+});
+</script>
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
@@ -83,5 +114,37 @@
             </nav>
         </div>
     </footer>
+    <script>
+// Show popup on page load with delay
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    // Create popup element
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-content">
+        <h2>Bruce Engelberg</h2>
+        <p>IT Professional & AI Specialist</p>
+        <button class="close-btn">Continue</button>
+      </div>
+    `;
+    
+    // Add to body
+    document.body.appendChild(popup);
+    
+    // Close on button click or outside click
+    const closeBtn = popup.querySelector('.close-btn');
+    closeBtn.addEventListener('click', function() {
+      popup.remove();
+    });
+    
+    popup.addEventListener('click', function(e) {
+      if (e.target === popup) {
+        popup.remove();
+      }
+    });
+  }, 1000); // Show after 1 second
+});
+</script>
 </body>
 </html>
